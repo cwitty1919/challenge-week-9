@@ -4,21 +4,21 @@ write-your-name
 
 # How many points have you earned?
 
-0/100
+80/100
 
 (Make your own calculation and replace the number 0 with the points you think you've earned.)
 
 # How many hours have you spent on this?
 
-fill-in-your-answer
+8
 
 # When did you first start working on this week's learning challenges?
 
-fill-in-your-answer
+Thursday.
 
 # What is the most difficult part about this week's challenge?
 
-fill-in-your-answer
+Getting MongoDB to work again. That alone took me about 2 hours.
 
 # Show and tell (8 points)
 
@@ -36,43 +36,43 @@ fill-in-your-answer
 
 # 1. (3 points)
 
-![image](image.png?raw=true)
+![image](C9Checkpoint1.png?raw=true)
 
-[checkpoint](checkpoint.html)
+[checkpoint](C9Checkpoint1.html)
 
 # 2. (3 points)
 
-![image](image.png?raw=true)
+![image](C9Checkpoint2.png?raw=true)
 
-[checkpoint](checkpoint.html)
+[checkpoint](C9Checkpoint2.html)
 
 # 3. (3 points)
 
-![image](image.png?raw=true)
+![image](C9Checkpoint3.png?raw=true)
 
-[checkpoint](checkpoint.html)
+[checkpoint](C9Checkpoint3.html)
 
 # 4. (3 points)
 
-![image](image.png?raw=true)
+![image](C9Checkpoint4.png?raw=true)
 
-[checkpoint](checkpoint.html)
+[checkpoint](C9Checkpoint4.html)
 
 ## Challenges (4 points x 3 = 12 points)
 
 # 1. (4 points)
 
-![image](image.png?raw=true)
+![image](C9Challenge1.png?raw=true)
 
 # 2. (4 points)
 
-![image](image.png?raw=true)
+![image](C9Challenge2.png?raw=true)
 
 # 3. (4 points)
 
-![image](image.png?raw=true)
+![image](C9Challenge3.png?raw=true)
 
-[challenge3](challenge3.html)
+[challenge3](C9Challenge3.html)
 
 
 
@@ -82,19 +82,19 @@ fill-in-your-answer
 
 ### 1 (6 points)
 
-[mongodb js code collecting github events about our course](mongodb-github.js)
+[mongodb js code collecting github events about our course](Mongoscript.js)
 
 ### 2 (6 points)
 
-![terminal output of mongodb query](screenshot.png?raw=true)
+![terminal output of mongodb query](C9MCheckpoint1.png?raw=true)
 
 ## Challenge 1 (4 points x 10 = 40 points)
 
 ### 1 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.count();
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MCheckpoint2.png?raw=true)
 
 ### 2 (4 points)
 
@@ -122,49 +122,49 @@ fill-in-your-answer
 
 ### 6 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.findOne({"type": 'IssuesEvent'}, {payload: 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MChallenge1.6.png?raw=true)
 
 ### 7 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.find({"type": "IssuesEvent"}, {"payload.issue.user.login": 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MChallenge1.7.png?raw=true)
 
 ### 8 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.find({"type": 'IssuesEvent', "payload.issue.state": 'closed'}, {"payload.issue.id": 1, "payload.issue.state": 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MChallenge1.8.png?raw=true)
 
 ### 9 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.find({"type": 'IssuesEvent', "payload.issue.state": 'open'}, {'payload.issue.user.login': 1, 'payload.issue.state': 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MChallenge1.9.png?raw=true)
 
 ### 10 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.find({"type": 'IssuesEvest', "payload.issue.comments": {$gt: 0} }, {"payload.issue.user.login": 10, "payload.issue.comments": 10});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MChallenge1.10.png?raw=true)
 
 
 ## Challenge 2 (8 points x 2 = 16 points) 
 
 ### 1 (8 points)
 
-{question-in-plain-English}
+How many issues have I had?
 
-> db.course_events.[complete this query]
+> db.github_repo_data.count({"type": 'IssuesEvent', "payload.user.login": "cwitty1919"});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9MChallenge2.1.png?raw=true)
 
 ### 2 (8 points)
 
-{question-in-plain-English}
+Who are the problem solvers in this class?
 
-> db.course_events.[complete this query]
+> db.github_repo_data
 
 ![screenshot](screenshot.png?raw=true)
