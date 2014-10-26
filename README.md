@@ -1,10 +1,10 @@
 # Name
 
-write-your-name
+Chris Wittenberg
 
 # How many points have you earned?
 
-80/100
+86/100
 
 (Make your own calculation and replace the number 0 with the points you think you've earned.)
 
@@ -92,31 +92,31 @@ fill-in-your-answer
 
 ### 1 (4 points)
 
-> db.github_repo_data.count();
+> db.github_repo_data.findOne({"actor.login": "doubleshow"});
 
 ![screenshot](C9MCheckpoint2.png?raw=true)
 
 ### 2 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.findOne({"actor.login": "doubleshow"}, {"actor": 1});
 
 ![screenshot](screenshot.png?raw=true)
 
 ### 3 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.findOne({"actor.login": {$in: ["doubleshow", "chrisbopp"]}}, {"actor.login": 1, "created_at": 1});
 
 ![screenshot](screenshot.png?raw=true)
 
 ### 4 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.find({'type': 'PushEvent'});
 
 ![screenshot](screenshot.png?raw=true)
 
 ### 5 (4 points)
 
-> db.course_events.[complete this query]
+> db.github_repo_data.findOne({'type': 'PushEvent'}, {"payload.commits.author.name": 1});
 
 ![screenshot](screenshot.png?raw=true)
 
@@ -124,31 +124,31 @@ fill-in-your-answer
 
 > db.github_repo_data.findOne({"type": 'IssuesEvent'}, {payload: 1});
 
-![screenshot](C9MChallenge1.6.png?raw=true)
+![screenshot](C9Challenge1.6.png?raw=true)
 
 ### 7 (4 points)
 
 > db.github_repo_data.find({"type": "IssuesEvent"}, {"payload.issue.user.login": 1});
 
-![screenshot](C9MChallenge1.7.png?raw=true)
+![screenshot](C9Challenge1.7.png?raw=true)
 
 ### 8 (4 points)
 
 > db.github_repo_data.find({"type": 'IssuesEvent', "payload.issue.state": 'closed'}, {"payload.issue.id": 1, "payload.issue.state": 1});
 
-![screenshot](C9MChallenge1.8.png?raw=true)
+![screenshot](C9Challenge1.8.png?raw=true)
 
 ### 9 (4 points)
 
 > db.github_repo_data.find({"type": 'IssuesEvent', "payload.issue.state": 'open'}, {'payload.issue.user.login': 1, 'payload.issue.state': 1});
 
-![screenshot](C9MChallenge1.9.png?raw=true)
+![screenshot](C9Challenge1.9.png?raw=true)
 
 ### 10 (4 points)
 
 > db.github_repo_data.find({"type": 'IssuesEvest', "payload.issue.comments": {$gt: 0} }, {"payload.issue.user.login": 10, "payload.issue.comments": 10});
 
-![screenshot](C9MChallenge1.10.png?raw=true)
+![screenshot](C9Challenge1.10.png?raw=true)
 
 
 ## Challenge 2 (8 points x 2 = 16 points) 
@@ -159,12 +159,12 @@ How many issues have I had?
 
 > db.github_repo_data.count({"type": 'IssuesEvent', "payload.user.login": "cwitty1919"});
 
-![screenshot](C9MChallenge2.1.png?raw=true)
+![screenshot](C9Challenge2.1.png?raw=true)
 
 ### 2 (8 points)
 
-Who are the problem solvers in this class?
+Which issues were the hardest to solve (had the most comments)?
 
-> db.github_repo_data
+> db.github_repo_data.find({"type": 'IssuesEvent'}, {"payload.issue.user.login": 10, "payload.issue.comments": 10}).sort("payload.issue.comments": -1);
 
 ![screenshot](screenshot.png?raw=true)
