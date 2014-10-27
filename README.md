@@ -4,7 +4,7 @@ Chris Wittenberg
 
 # How many points have you earned?
 
-86/100
+90/100
 
 (Make your own calculation and replace the number 0 with the points you think you've earned.)
 
@@ -24,11 +24,11 @@ Getting MongoDB to work again. That alone took me about 2 hours.
 
 ## Link (2 points)
 
-[title-of-the-article](http://link-to-an-article-about-machine-learning-use-for-big-data)
+[The “Big Data” Solution For Wall Street](http://iknowfirst.com/the-big-data-solution-for-wall-street)
 
 ## Discuss how you may apply the machine learning technique mentioned in this article to another interesting problem (6 points).
 
-fill-in-your-answer
+In this article, it talks about using machine learning for long-term, quantitative trading algorithms rather than High-Frequency-Trading algorithms. Quantitave trading algoritms generally pick stocks by attempting to predict the market before it happens. I would use the approach to creating an algorithm that forecasts weather and commodity prices of crops and livestock so farmers can plant/raise the most profitable food.  
 
 # D3 IV
 
@@ -75,7 +75,6 @@ fill-in-your-answer
 [challenge3](C9Challenge3.html)
 
 
-
 # MongoDB II
 
 ## Checkpoints (6 points x 2 = 12 points)
@@ -94,31 +93,31 @@ fill-in-your-answer
 
 > db.github_repo_data.findOne({"actor.login": "doubleshow"});
 
-![screenshot](C9MCheckpoint2.png?raw=true)
+![screenshot](C9Challenge1.6\1.png?raw=true)
 
 ### 2 (4 points)
 
 > db.github_repo_data.findOne({"actor.login": "doubleshow"}, {"actor": 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9Challenge1.2.png?raw=true)
 
 ### 3 (4 points)
 
 > db.github_repo_data.findOne({"actor.login": {$in: ["doubleshow", "chrisbopp"]}}, {"actor.login": 1, "created_at": 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9Challenge1.3.png?raw=true)
 
 ### 4 (4 points)
 
 > db.github_repo_data.find({'type': 'PushEvent'});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9Challenge1.4.png?raw=true)
 
 ### 5 (4 points)
 
 > db.github_repo_data.findOne({'type': 'PushEvent'}, {"payload.commits.author.name": 1});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9Challenge1.5.png?raw=true)
 
 ### 6 (4 points)
 
@@ -163,8 +162,8 @@ How many issues have I had?
 
 ### 2 (8 points)
 
-Which issues were the hardest to solve (had the most comments)?
+Who is attempting to solve problems in class?
 
-> db.github_repo_data.find({"type": 'IssuesEvent'}, {"payload.issue.user.login": 10, "payload.issue.comments": 10}).sort("payload.issue.comments": -1);
+> db.github_repo_data.find({"type": "IssuesEvent"}, {"actor.login": 1, "payload.issue.comments": -1}, {$orderby:{"payload.issue.comments": -1}});
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](C9Challenge2.2.png?raw=true)
