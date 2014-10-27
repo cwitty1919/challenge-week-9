@@ -162,7 +162,7 @@ How many issues have I had?
 
 ### 2 (8 points)
 
-Who is attempting to solve problems in class?
+What are the hardest problems to solve (have the most comments)?
 
 > db.github_repo_data.find({"type": "IssuesEvent"}, {"actor.login": 1, "payload.issue.comments": -1}, {$orderby:{"payload.issue.comments": -1}});
 
